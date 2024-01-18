@@ -162,3 +162,45 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/git,java,maven,eclipse,windows
+
+# Arquivos e diretórios específicos do Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.branch
+
+# Configuração do Eclipse
+.classpath
+.project
+.settings/
+
+# Arquivos de log
+log/
+*.log
+
+# Arquivos de compilação Java
+*.class
+
+# Arquivos de backup
+*~
+*.swp
+
+# Arquivos de configuração do Maven
+.mvn/
+
+# Arquivos temporários
+*.tmp
+*.tmp.*
+*.log
+*.swp
+
+# Arquivos de build
+bin/
+build/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
