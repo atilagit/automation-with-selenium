@@ -5,7 +5,10 @@ import org.example.datasources.ArtistDataSource;
 import org.example.entities.Artist;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,8 +28,13 @@ public class SendMessagesUseCase {
         WebDriver driver = WebDriverManager.chromedriver().create();
         driver.get("https://web.whatsapp.com/");
 
-        System.out.println("Faça autenticação via QRcode e pressione Enter no console para continuar...");
-        scanner.nextLine();
+        // Inicializar o WebDriverWait com o WebDriver e o tempo de espera máximo
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(2));
+
+        // Esperar até que o elemento com o ID "side" esteja presente na página
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("side")));
+
+        waitSomeTime();
 
         for (Artist artist : artists) {
             driver.findElement(By.xpath("//*[@id=\"side\"]/div[1]/div/div[2]/div[2]/div/div[1]/p")).click();
