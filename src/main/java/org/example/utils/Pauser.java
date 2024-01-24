@@ -6,10 +6,10 @@ public class Pauser {
     private Pauser(){}
     private static final Random random = new Random();
 
-    public static void waitSomeTime() {
+    public static void waitSomeTimeBetween(int min, int max) {
 
-        // Gera um número aleatório entre 3000 e 10000 (inclusive)
-        int numeroAleatorio = random.nextInt(7001) + 3000;
+        // Gera um número aleatório entre min e máx (inclusive)
+        int numeroAleatorio = random.nextInt((max-min+1)) + min;
         try {
             System.out.println("Aguardando " + numeroAleatorio + " milissegundos");
             Thread.sleep(numeroAleatorio);
