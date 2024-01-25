@@ -2,6 +2,8 @@ package org.example.utils;
 
 import java.util.Random;
 
+import static org.example.utils.Constants.*;
+
 public class Pauser {
     private Pauser(){}
     private static final Random random = new Random();
@@ -15,6 +17,15 @@ public class Pauser {
             Thread.sleep(numeroAleatorio);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public static void waiting(String typeOfWaiting) {
+        if (WAIT_LESS_TIME.equals(typeOfWaiting)){
+            waitSomeTimeBetween(MIN_WAIT_LESS_TIME, MAX_WAIT_LESS_TIME);
+        } else if (WAIT_SOME_TIME.equals(typeOfWaiting)) {
+            waitSomeTimeBetween(MIN_WAIT_SOME_TIME, MAX_WAIT_SOME_TIME);
         }
     }
 }
