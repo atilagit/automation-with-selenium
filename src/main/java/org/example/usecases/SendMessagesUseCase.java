@@ -3,6 +3,7 @@ package org.example.usecases;
 import org.example.datasources.ArtistDataSource;
 import org.example.entities.Artist;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +24,6 @@ public class SendMessagesUseCase {
     public static final String WHATSAPP_WEB_URL = "https://web.whatsapp.com/";
     public static final String SEARCH_FIELD = "//*[@id=\"side\"]/div[1]/div/div[2]/div[2]/div/div[1]/p";
     public static final String MESSAGE_FIELD = "//*[@id=\"main\"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p";
-    public static final String SEND_BUTTON = "//*[@id=\"main\"]/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span";
     public static final String SPAN_ELEMENT_BY_TITLE = "//span[@title='" + TITLE +"']";
 
     ArtistDataSource artistDataSource;
@@ -47,11 +47,10 @@ public class SendMessagesUseCase {
             String resultOfTheSearch = getPathOfResult(artist.getWhatsappName());
             clickOn(By.xpath(resultOfTheSearch), WAIT_SOME_TIME);
 
-            clickOn(By.xpath(MESSAGE_FIELD), WAIT_LESS_TIME);
             String message = getMessage(artist.getInformalName());
             writeText(message, By.xpath(MESSAGE_FIELD), WAIT_LESS_TIME);
 
-            clickOn(By.xpath(SEND_BUTTON), WAIT_LESS_TIME);
+            writeText(Keys.ENTER, By.xpath(MESSAGE_FIELD), WAIT_LESS_TIME);
         }
         closeWebDriverInstance();
     }

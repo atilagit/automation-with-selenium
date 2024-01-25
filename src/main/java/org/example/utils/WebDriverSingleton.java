@@ -30,7 +30,7 @@ public class WebDriverSingleton {
         waiting(typeOfWaiting);
     }
 
-    public static void writeText(String text, By element, String typeOfWaiting) {
+    public static void writeText(CharSequence text, By element, String typeOfWaiting) {
         getWebDriverInstance().findElement(element).sendKeys(text);
         waiting(typeOfWaiting);
     }
