@@ -13,7 +13,7 @@ public class Artist {
     private String artistName;
     private String whatsappName;
     private String informalName;
-    private String artistPhoneNumber;
+    private String phoneNumber;
     private Boolean soloSinger;
 
     private String responsiblePhoneNumber;
