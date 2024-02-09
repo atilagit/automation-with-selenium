@@ -10,12 +10,13 @@ import lombok.*;
 @Setter
 public class Artist {
     private long id;
-    private String artistName;
-    private String whatsappName;
-    private String informalName;
     private String phoneNumber;
+    private String whatsappName;
+    private String artistName;
+    private String informalArtistName;
     private Boolean soloSinger;
-
-    private String responsiblePhoneNumber;
-    private String responsibleName;
+    private Boolean responsibleContact;
+    private String informalResponsibleName;
+    private Boolean producerForSeveralArtists;
+    private String informalNameOfProducer;
 }

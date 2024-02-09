@@ -39,13 +39,15 @@ public class ExcelArtistDataSource implements ArtistDataSource{
 
                 // Mapear cada coluna para os campos do objeto Artist
                 artist.setId((long) row.getCell(0).getNumericCellValue());
-                artist.setArtistName(row.getCell(1).getStringCellValue());
+                artist.setPhoneNumber(String.valueOf((long) row.getCell(1).getNumericCellValue()));
                 artist.setWhatsappName(row.getCell(2).getStringCellValue());
-                artist.setInformalName(row.getCell(3).getStringCellValue());
-                artist.setPhoneNumber(String.valueOf((long) row.getCell(4).getNumericCellValue()));
+                artist.setArtistName(row.getCell(3).getStringCellValue());
+                artist.setInformalArtistName(row.getCell(4).getStringCellValue());
                 artist.setSoloSinger(Boolean.parseBoolean(row.getCell(5).getStringCellValue()));
-                artist.setResponsiblePhoneNumber(row.getCell(6).getStringCellValue());
-                artist.setResponsibleName(row.getCell(7).getStringCellValue());
+                artist.setResponsibleContact(Boolean.parseBoolean(row.getCell(6).getStringCellValue()));
+                artist.setInformalResponsibleName(row.getCell(7).getStringCellValue());
+                artist.setProducerForSeveralArtists(Boolean.parseBoolean(row.getCell(8).getStringCellValue()));
+                artist.setInformalNameOfProducer(row.getCell(9).getStringCellValue());
 
                 artists.add(artist);
             }
@@ -59,6 +61,6 @@ public class ExcelArtistDataSource implements ArtistDataSource{
     }
 
     private static boolean thereIsNoDataInTheRow(Row row) {
-        return (Objects.isNull(row.getCell(1).getStringCellValue()) || "".equals(row.getCell(1).getStringCellValue()));
+        return (Objects.isNull(row.getCell(2).getStringCellValue()) || "".equals(row.getCell(2).getStringCellValue()));
     }
 }
